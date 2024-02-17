@@ -1,0 +1,10 @@
+.ext-container {
+    min-width: 250px;
+    min-height: 400px;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Jarvis",
+  "description": "Extension that includes a popup and requests host permissions and storage permissions .",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P"
+        // Example shortcut. Modify as needed.
+      }
+    }
+  },
+  "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "css": ["styles.css"],
+      "js": ["content-script.js"]
+  }],
+  "host_permissions": [
+    "http://localhost/*",
+    "https://localhost/*"
+  ],
+  "permissions": [
+    "activeTab",
+    "commands",
+    "storage",
+    "declarativeContent",
+    "tabs"
+  ],
+  "web_accessible_resources": [
+      {
+          "resources" : ["styles.css"],
+          "matches": ["<all_urls>"]
+      }
+  ],
+  "background": {
+      "service_worker": "background.js"
+  }
+}
